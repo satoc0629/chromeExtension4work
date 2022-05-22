@@ -1,0 +1,45 @@
+{
+  "name": "chromeExtension4work",
+  "description": "システムインテグレーター従事者向けChrome拡張",
+  "version": "0.0.0.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "content_scripts": [{
+    "matches": ["http://*/*","https://*/*"],
+    "js": ["content-script.js"]
+  }],
+  "commands": {
+    "translateDeppL": {
+      "suggested_key": "Ctrl+Shift+L",
+      "description": "Translate Selected Text."
+    },
+    "searchByEnglishGoogle": {
+      "suggested_key": "Ctrl+Shift+E",
+      "description": "Search Text by EN Google."
+    }
+  },
+  "action": {
+    "default_popup_bk": "popup.html",
+    "default_icon": {
+      "16": "/images/16.png",
+      "32": "/images/32.png",
+      "48": "/images/48.png",
+      "128": "/images/128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/16.png",
+    "32": "/images/32.png",
+    "48": "/images/48.png",
+    "128": "/images/128.png"
+  },
+  "options_page": "options.html"
+}
